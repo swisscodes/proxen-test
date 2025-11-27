@@ -1,0 +1,63 @@
+@hostname = http://localhost:8000
+@contentType = application/json
+@token = token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJzd2lzc2JvYm83QGdtYWlsLmNvbSIsImlhdCI6MTc2NDI4MTUxMSwiZXhwIjoxNzY0ODg2MzExfQ.tKEGw3-GN_gvLs6a_88XSvedrmzRUnuSzZLLm8t3wW4
+
+
+### REGISTER
+POST {{hostname}}/auth/register HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+    "email": "swissbobo7@gmail.com",
+    "password": "AA!12345678a"
+}
+
+### LOGIN
+POST {{hostname}}/auth/login HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+    "email": "swissbobo7@gmail.com",
+    "password": "AA!12345678a"
+}
+
+### CREATE EVENT
+POST {{hostname}}/events HTTP/1.1
+Authorization: {{token}}
+Content-Type: {{contentType}}
+
+{
+    "title": "test",
+    "capacity": 60
+}
+
+### GET EVENT
+GET {{hostname}}/events/8 HTTP/1.1
+
+
+### HOLD RESERVATION
+POST {{hostname}}/reservations/hold HTTP/1.1
+Authorization: {{token}}
+Content-Type: {{contentType}}
+
+{
+    "eventId": 8
+}
+
+### CONFIRM RESERVATION
+POST {{hostname}}/reservations/confirm HTTP/1.1
+Authorization: {{token}}
+Content-Type: {{contentType}}
+
+{
+   "reservationId": 5
+}
+
+### CANCEL RESERVATION
+POST {{hostname}}/reservations/cancel HTTP/1.1
+Authorization: {{token}}
+Content-Type: {{contentType}}
+
+{
+    "reservationId": 5
+}
