@@ -27,8 +27,11 @@ Authorization: {{token}}
 Content-Type: {{contentType}}
 
 {
-    "title": "test",
-    "capacity": 60
+    "title": "test3",
+    "capacity": 60,
+    "startDate": "November 28, 2025",
+    "endDate": "November 30, 2025"
+
 }
 
 ### GET EVENT
